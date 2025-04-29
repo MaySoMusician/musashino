@@ -1,0 +1,9 @@
+name: musashino-server
+services:
+  frps:
+    image: ghcr.io/fatedier/frps:v0.62.1
+    command: -c /app/config/frps.toml
+    volumes:
+      - ./config/:/app/config/
+    ports:
+      - "0.0.0.0:${FRPS_PORT_HOST:-7000}:${FRPS_PORT_CONTAINER:-7000}"
