@@ -19,5 +19,10 @@ services:
       -b 4096
       --temp 0.6
       -c 0
-    ports:
-      - "127.0.0.1:8000:8000"
+  frpc:
+    image: ghcr.io/fatedier/frpc:v0.62.1
+    depends_on:
+      - llama-cpp
+    volumes:
+      - ./config/:/app/config/
+    command: -c /app/config/frpc.toml

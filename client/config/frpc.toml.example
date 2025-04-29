@@ -1,0 +1,9 @@
+# Example
+serverAddr = "203.0.113.0" # Example
+serverPort = 7000
+
+[[proxies]]
+name = "web"
+type = "http"
+localPort = 80
+customDomains = ["www.example.com"]
