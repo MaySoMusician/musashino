@@ -1,0 +1,23 @@
+name: musashino-client
+services:
+  llama-cpp:
+    image: ghcr.io/ggerganov/llama.cpp:server-cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu"]
+    volumes:
+      - ./models:/models
+    command: >
+      -m /models/sarashina2.2-3b-instruct-v0.1-Q8_0.gguf
+      --port 8000
+      --host 0.0.0.0
+      -ngl 99
+      -b 4096
+      --temp 0.6
+      -c 0
+    ports:
+      - "127.0.0.1:8000:8000"
