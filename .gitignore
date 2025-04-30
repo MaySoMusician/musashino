@@ -1,5 +1,6 @@
 client/models/*
 !client/models/.gitkeep
+client/config/certs/*
 
 frps.toml
 frpc.toml
