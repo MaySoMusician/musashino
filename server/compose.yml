@@ -7,3 +7,4 @@ services:
       - ./config/:/app/config/
     ports:
       - "0.0.0.0:${FRPS_PORT_HOST:-7000}:${FRPS_PORT_CONTAINER:-7000}"
+      - "0.0.0.0:${FRPS_VHOST_HOST:-80}:${FRPS_VHOST_CONTAINER:-80}"
